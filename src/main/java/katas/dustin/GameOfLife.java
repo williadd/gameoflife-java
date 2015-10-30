@@ -13,5 +13,13 @@ public class GameOfLife {
 	public Board getBoard() {
 		return board;
 	}
+	
+	public int[][] getState() {
+		return board.getBoard();
+	}
+	
+	public void setState(int[][] state) {
+		this.board.setBoard(state);
+	}
 
 }

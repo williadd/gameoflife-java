@@ -16,4 +16,12 @@ public class Board {
 	public int getHeight() {
 		return board.length;
 	}
+	
+	public int[][] getBoard() {
+		return board;
+	}
+	
+	public void setBoard(int[][] board) {
+		this.board = board;
+	}
 }
