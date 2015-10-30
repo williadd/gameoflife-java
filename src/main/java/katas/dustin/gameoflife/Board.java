@@ -22,6 +22,7 @@ public class Board {
 	}
 	
 	public void setBoard(int[][] board) {
+		//TODO Would be nice to make sure the new board size is the same as the existing board size
 		this.board = board;
 	}
 }
