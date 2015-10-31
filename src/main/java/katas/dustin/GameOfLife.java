@@ -58,4 +58,13 @@ public class GameOfLife {
 		}
 		return nextState;
 	}
+	
+	public void processSingleLifeCycle() {
+		for(int r = 0; r < getBoard().getHeight(); r++) {
+			for(int c = 0; c < getBoard().getWidth(); c++) {
+				char nextState = nextStateOf(r, c);
+				getBoard().setCellLifeStatusAt(r,c,nextState == 'A');
+			}
+		}
+	}
 }

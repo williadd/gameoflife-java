@@ -88,4 +88,9 @@ public class Board {
 		}
 		return sum;
 	}
+	
+	public void setCellLifeStatusAt(int row, int col, boolean alive) {
+		Cell cell = board[row][col];
+		cell.setAlive(alive);
+	}
 }

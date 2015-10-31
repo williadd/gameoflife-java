@@ -109,5 +109,30 @@ public class TestGameOfLife {
 		assertThat(game.nextStateOf(0,6), is('.'));
 		assertThat(game.nextStateOf(1,2), is('.'));
 	}
+	
+	@Test
+	public void processesTheBoardLeftToRightTopToBottomToGetANewBoardState() {
+		GameOfLife game = new GameOfLife();
+		char[][] newState = new char[][] {
+				{'A', 'A', 'A', 'A', '.', '.', '.', 'A'},
+				{'A', 'A', '.', '.', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', '.', '.', 'A', 'A', 'A'}
+		};
+		
+		game.setState(newState);
+		game.processSingleLifeCycle();
+		char[][] expectedState = new char[][] {
+				{'A', '.', 'A', '.', '.', '.', '.', '.'},
+				{'A', '.', 'A', 'A', '.', '.', '.', '.'},
+				{'A', '.', '.', 'A', '.', '.', 'A', 'A'},
+				{'.', '.', 'A', 'A', '.', '.', '.', '.'},
+				{'.', '.', 'A', 'A', '.', 'A', '.', 'A'},
+				{'.', '.', '.', '.', 'A', 'A', '.', '.'}
+		};
+		assertThat(game.getState(), equalTo(expectedState));
+	}
 
 }
