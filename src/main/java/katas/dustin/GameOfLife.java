@@ -41,7 +41,7 @@ public class GameOfLife {
 		if(liveNeighborCount < 2 || liveNeighborCount > 3) {
 			nextState = '.';
 		} else {
-			nextState = 'X';
+			nextState = 'A';
 		}
 		return nextState;
 	}

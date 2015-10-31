@@ -73,5 +73,22 @@ public class TestGameOfLife {
 		assertThat(game.nextStateOf(1,1), is('.'));
 		assertThat(game.nextStateOf(4,6), is('.'));
 	}
+	
+	@Test
+	public void liveCellLivesWhen2Or3LiveNeighbors() {
+		GameOfLife game = new GameOfLife();
+		char[][] newState = new char[][] {
+				{'A', 'A', 'A', 'A', '.', '.', '.', 'A'},
+				{'A', 'A', '.', '.', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', '.', '.', 'A', 'A', 'A'}
+		};
+		
+		game.setState(newState);
+		assertThat(game.nextStateOf(3,3), is('A'));
+		assertThat(game.nextStateOf(3,5), is('A'));
+	}
 
 }
