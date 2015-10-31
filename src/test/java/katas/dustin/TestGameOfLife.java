@@ -35,7 +35,7 @@ public class TestGameOfLife {
 	}
 	
 	@Test
-	public void cellDiesWhenFewerThan2LiveNeighbors() {
+	public void liveCellDiesWhenFewerThan2LiveNeighbors() {
 		GameOfLife game = new GameOfLife();
 		char[][] newState = new char[][] {
 				{'A', '.', 'A', 'A', '.', '.', '.', '.'},
@@ -54,6 +54,24 @@ public class TestGameOfLife {
 		assertThat(game.nextStateOf(2,3), is('.'));
 		assertThat(game.nextStateOf(3,1), is('.'));
 		assertThat(game.nextStateOf(3,3), is('.'));
+	}
+	
+	@Test
+	public void liveCellDiesWhenMoreThan3LiveNeighbors() {
+		GameOfLife game = new GameOfLife();
+		char[][] newState = new char[][] {
+				{'A', 'A', 'A', 'A', '.', '.', '.', '.'},
+				{'A', 'A', '.', '.', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', '.', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', '.', '.', 'A', 'A', 'A'}
+		};
+		
+		game.setState(newState);
+		assertThat(game.nextStateOf(0,1), is('.'));
+		assertThat(game.nextStateOf(1,1), is('.'));
+		assertThat(game.nextStateOf(4,6), is('.'));
 	}
 
 }

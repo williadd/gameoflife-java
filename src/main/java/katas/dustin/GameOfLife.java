@@ -38,7 +38,7 @@ public class GameOfLife {
 
 	private char calculateNextStateOfLiveCell(int liveNeighborCount) {
 		char nextState;
-		if(liveNeighborCount < 2) {
+		if(liveNeighborCount < 2 || liveNeighborCount > 3) {
 			nextState = '.';
 		} else {
 			nextState = 'X';
