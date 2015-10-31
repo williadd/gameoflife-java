@@ -14,12 +14,35 @@ public class GameOfLife {
 		return board;
 	}
 	
-	public int[][] getState() {
+	public char[][] getState() {
 		return board.getBoard();
 	}
 	
-	public void setState(int[][] state) {
+	public void setState(char[][] state) {
 		this.board.setBoard(state);
 	}
+	
+	public char nextStateOf(int row, int col) {
+		int liveNeighborCount = board.getLiveNighborCount(row, col);
+		char currentState = board.getBoard()[row][col];
+		char nextState;
+		switch(currentState) {
+		case 'A' : 
+			nextState = calculateNextStateOfLiveCell(liveNeighborCount);
+			break;
+		default :
+			nextState = 'X';
+		}
+		return nextState;
+	}
 
+	private char calculateNextStateOfLiveCell(int liveNeighborCount) {
+		char nextState;
+		if(liveNeighborCount < 2) {
+			nextState = '.';
+		} else {
+			nextState = 'X';
+		}
+		return nextState;
+	}
 }
