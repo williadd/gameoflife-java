@@ -30,8 +30,21 @@ public class GameOfLife {
 		case 'A' : 
 			nextState = calculateNextStateOfLiveCell(liveNeighborCount);
 			break;
+		case '.' :
+			nextState = calculateNextStateOfDeadCell(liveNeighborCount);
+			break;
 		default :
 			nextState = 'X';
+		}
+		return nextState;
+	}
+	
+	private char calculateNextStateOfDeadCell(int liveNeighborCount) {
+		char nextState;
+		if(liveNeighborCount == 3) {
+			nextState = 'A';
+		} else {
+			nextState = '.';
 		}
 		return nextState;
 	}

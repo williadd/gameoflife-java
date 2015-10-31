@@ -90,5 +90,24 @@ public class TestGameOfLife {
 		assertThat(game.nextStateOf(3,3), is('A'));
 		assertThat(game.nextStateOf(3,5), is('A'));
 	}
+	
+	@Test
+	public void deadCellBecomesAliveWhenExactly3NeighborsAreAlive() {
+		GameOfLife game = new GameOfLife();
+		char[][] newState = new char[][] {
+				{'A', 'A', 'A', 'A', '.', '.', '.', 'A'},
+				{'A', 'A', '.', '.', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', '.', '.', '.'},
+				{'.', 'A', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', 'A', '.', 'A', 'A', 'A'},
+				{'.', '.', '.', '.', '.', 'A', 'A', 'A'}
+		};
+		
+		game.setState(newState);
+		assertThat(game.nextStateOf(1,3), is('A'));
+		assertThat(game.nextStateOf(2,6), is('A'));
+		assertThat(game.nextStateOf(0,6), is('.'));
+		assertThat(game.nextStateOf(1,2), is('.'));
+	}
 
 }
