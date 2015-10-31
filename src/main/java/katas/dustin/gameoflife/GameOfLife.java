@@ -1,5 +1,7 @@
 package katas.dustin.gameoflife;
 
+import java.io.PrintStream;
+
 
 public class GameOfLife {
 	
@@ -63,6 +65,15 @@ public class GameOfLife {
 			for(int c = 0; c < getBoard().getWidth(); c++) {
 				char nextState = nextStateOf(r, c);
 				getBoard().setCellLifeStatusAt(r,c,nextState == 'A');
+			}
+		}
+	}
+	
+	public void printBoard(PrintStream out) {
+		for(int r = 0; r < getBoard().getHeight(); r++) {
+			out.println();
+			for(int c = 0; c < getBoard().getWidth(); c++) {
+				out.print(getState()[r][c]);
 			}
 		}
 	}
