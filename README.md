@@ -19,7 +19,7 @@ will promt you for a file. The file should be JSON with an 8x6 grid. The applica
 
 ### Running the game for a specified number of generations
 
-In this mode the application will create a random starting state. You will be asked for the number of generations to run. Note that the appl will not stop if all cells die, it will continue to process the number of generations you specify.
+In this mode the application will use a starting state defined in the main class. You will be asked for the number of generations to run. Note that the appl will not stop if all cells die, it will continue to process the number of generations you specify.
 
 <code>
 mvn package exec:java -Dexec.mainClass="katas.dustin.GameOfLifeAutoRun"
