@@ -15,7 +15,7 @@ import katas.dustin.gameoflife.GameOfLife;
 public class GameOfLifeKata {
 
 	public static void main(String[] args) throws IOException {
-		System.out.println("This is a demonstrattion of the functionality required for the Game of Life Excercise.");
+		System.out.println("This is a demonstration of the functionality required for the Game of Life Excercise.");
 		System.out.println("Please enter the name of the JSON file containing an 8 wide by 6 tall grid (expecteing a simple 2D array).");
 		
 		Scanner sc = new Scanner(System.in);
