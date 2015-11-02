@@ -1,6 +1,6 @@
 # gameoflife-java
 
-Overall solution is based on an object oriented solution to the problem: a game, a game woth a board, and a board with cells. The cells know there state and their nighbors. The board knows all of the cells, and the game controls the rules of the game.
+Overall solution is based on an object oriented solution to the problem: a game, a game with a board, and a board with cells. The cells know their state and their nighbors. The board knows all of the cells, and the game controls the rules of the game.
 
 ## Building the Solution
 The project is mavenized using Maven 3.
