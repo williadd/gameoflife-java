@@ -61,12 +61,13 @@ public class GameOfLife {
 	}
 	
 	public void processSingleLifeCycle() {
+		char[][] nextLife = new char[getBoard().getHeight()][getBoard().getWidth()];
 		for(int r = 0; r < getBoard().getHeight(); r++) {
 			for(int c = 0; c < getBoard().getWidth(); c++) {
-				char nextState = nextStateOf(r, c);
-				getBoard().setCellLifeStatusAt(r,c,nextState == 'A');
+				nextLife[r][c] = nextStateOf(r, c);
 			}
 		}
+		setState(nextLife);
 	}
 	
 	public void printBoard(PrintStream out) {

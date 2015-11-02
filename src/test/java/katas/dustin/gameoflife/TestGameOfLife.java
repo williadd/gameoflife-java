@@ -112,7 +112,7 @@ public class TestGameOfLife {
 	}
 	
 	@Test
-	public void processesTheBoardLeftToRightTopToBottomToGetANewBoardState() {
+	public void processesAllCellsSimultaneouslyToGetANewBoardState() {
 		GameOfLife game = new GameOfLife();
 		char[][] newState = new char[][] {
 				{'A', 'A', 'A', 'A', '.', '.', '.', 'A'},
@@ -127,11 +127,11 @@ public class TestGameOfLife {
 		game.processSingleLifeCycle();
 		char[][] expectedState = new char[][] {
 				{'A', '.', 'A', '.', '.', '.', '.', '.'},
-				{'A', '.', 'A', 'A', '.', '.', '.', '.'},
-				{'A', '.', '.', 'A', '.', '.', 'A', 'A'},
-				{'.', '.', 'A', 'A', '.', '.', '.', '.'},
-				{'.', '.', 'A', 'A', '.', 'A', '.', 'A'},
-				{'.', '.', '.', '.', 'A', 'A', '.', '.'}
+				{'.', '.', '.', 'A', '.', '.', '.', '.'},
+				{'.', 'A', '.', '.', 'A', '.', 'A', '.'},
+				{'.', '.', '.', 'A', '.', 'A', '.', 'A'},
+				{'.', '.', 'A', '.', '.', '.', '.', '.'},
+				{'.', '.', '.', '.', 'A', 'A', '.', 'A'}
 		};
 		assertThat(game.getState(), equalTo(expectedState));
 	}
